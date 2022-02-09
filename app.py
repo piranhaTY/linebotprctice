@@ -230,19 +230,20 @@ def replyMessage(payload):
 
 
 def pushMessage(payload):
-    response = request.post("https://api.line.me/v2/bot/message/push", headers=HEADER, ,data=json.dumps(payload))
+    response = request.post("https://api.line.me/v2/bot/message/push", headers=HEADER, data=json.dumps(payload))
     return 'OK'
 
 
 def getTotalSentMessageCount():
-    response = {}
-    return 0
+    response = request.get("https://api.line.me/v2/bot/message/quota/consumption", headers=HEADER)
+    return response.jason()["totalUsage"]
 
 
 def getTodayCovid19Message():
-    date = ""
-    total_count = 0
-    count = 0
+    covid_data = request.get("https://covid-19.nchc.org.tw/api/covid19?CK=covid-19@nchc.org.tw&querydata=4001&limited=TWN")
+    date = covid_data.jason()[0]['a04']
+    total_count = covid_data.jason()[0]['a05']
+    count = covid_data.jason()[0]['a06']
     return F"日期：{date}, 人數：{count}, 確診總人數：{total_count}"
 
 
