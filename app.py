@@ -166,13 +166,14 @@ def sendTextMessageToMe():
 
 
 def getNameEmojiMessage():
-    profile = line_bot_api.get_profile('<user_id>')
-    getname = requests.get("https://api.line.me/v2/bot/profile/"+profile, headers=HEADER)
     lookUpStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
     productId = "5ac21a8c040ab15980c9b43f"
-    name = getname['displayName']
+    name = "Ting Yu"
     message = dict()
-    return name
+    for i in name:
+        num = str(lookUpStr.index(i) + 1).rjust(3, "0")
+        message[i] = num
+    return message
 
 
 def getCarouselMessage(data):
