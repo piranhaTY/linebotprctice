@@ -237,7 +237,7 @@ def getLocationConfirmMessage(title, latitude, longitude):
               {
                 "type": "message",
                 "label": "否",
-                "text": "n否"
+                "text": "否"
               }
           ]
       }
@@ -246,7 +246,22 @@ def getLocationConfirmMessage(title, latitude, longitude):
 
 
 def getCallCarMessage(data):
-    message = dict()
+    message = {
+      "type": "template",
+      "altText": "this is a template",
+      "template": {
+          "type": "buttons",
+          "text": f"請選擇至 {data['title']} 預約叫車時間",
+          "actions": [
+              {
+               "type": "datetimepicker",
+               "label": "預約",
+               "data": json.dumps(data),
+               "mode": "datetime"
+               }
+          ]
+      }
+    }
     return message
 
 
