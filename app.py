@@ -51,7 +51,11 @@ def index():
                 elif text == "台北101":
                     payload["messages"] = [getTaipei101ImageMessage(),
                                            getTaipei101LocationMessage(),
-                                           getMRTVideoMessage()]
+                                           getMRTVideoMessage()
+                                          ]
+                elif text == "台北101圖":
+                    payload["messages"] = [getTaipei101ImageMessage()
+                                          ]
                 elif text == "quoda":
                     payload["messages"] = [
                             {
