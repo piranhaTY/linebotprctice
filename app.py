@@ -239,7 +239,7 @@ def getMRTSoundMessage():
 
 
 def getTaipei101ImageMessage(originalContentUrl=F"{end_point}/static/taipei_101.jpeg"):
-    #originalContentUrl -- 利用Heroku讀取Local Side的圖, 也可用其他網上的URL(但會有無法掌控對方server狀況的風險)
+    #originalContentUrl -- {end_point}目的是使用Heroku讀取Local Side的圖, 也可用其他網上的URL(但會有無法掌控對方server狀況的風險)
     return getImageMessage(originalContentUrl)
 
 
