@@ -51,11 +51,11 @@ def index():
                 elif text == "台北101":
                     payload["messages"] = [getTaipei101ImageMessage(),
                                            getTaipei101LocationMessage(),
-                                           getMRTVideoMessage()
-                                          ]
+                                           getMRTVideoMessage()]
+                    
                 elif text == "台北101圖":
-                    payload["messages"] = [getTaipei101ImageMessage()
-                                          ]
+                    payload["messages"] = [getTaipei101ImageMessage()]
+                    
                 elif text == "quoda":
                     payload["messages"] = [
                             {
@@ -235,6 +235,11 @@ def getMRTSoundMessage():
 
 
 def getTaipei101ImageMessage(originalContentUrl=F"{end_point}/static/taipei_101.jpeg"):
+    #originalContentUrl -- 利用Heroku讀取Local Side的圖, 也可用其他網上的URL(但會有無法掌控對方server狀況的風險)
+    message = dict()
+    message["type"] = "image" 
+    message["originalContentUrl"] = originalContentUrl
+    message["previewImageUrl"] = originalContentUrl
     return getImageMessage(originalContentUrl)
 
 
