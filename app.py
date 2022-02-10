@@ -201,7 +201,7 @@ def getLocationConfirmMessage(title, latitude, longitude):
       "altText": "this is a confirm template",
       "template": {
           "type": "confirm",
-          "text": f"確認是否搜尋 {title} 附近地點",
+          "text":  f"確認是否搜尋 {title} 附近地點？",
           "actions": [
               {
                 "type": "message",
