@@ -243,7 +243,7 @@ def getImageMessage(originalContentUrl):
     message = dict()    
     message = dict()
     message["type"] = "image" 
-    message["originalContentUrl"] = "https://raw.githubusercontent.com/piranhaTY/linebotprctice/main/static/taipei_1.jpeg"
+    message["originalContentUrl"] = originalContentUrl
     message["previewImageUrl"] = originalContentUrl
     return message
 
