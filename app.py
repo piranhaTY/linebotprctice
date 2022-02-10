@@ -238,7 +238,7 @@ def getTaipei101ImageMessage(originalContentUrl=F"{end_point}/static/taipei_101.
     #originalContentUrl -- 利用Heroku讀取Local Side的圖, 也可用其他網上的URL(但會有無法掌控對方server狀況的風險)
     message = dict()
     message["type"] = "image" 
-    message["originalContentUrl"] = "https://raw.githubusercontent.com/piranhaTY/linebotprctice/main/static/taipei_1.jpeg"
+    message["originalContentUrl"] = originalContentUrl
     message["previewImageUrl"] = originalContentUrl
     return getImageMessage(originalContentUrl)
 
