@@ -215,6 +215,11 @@ def getPlayStickerMessage():
 
 def getTaipei101LocationMessage():
     message = dict()
+    message["type"] = "location"
+    message["title"] ="Taipei 101"
+    message["address"] = "No. 7, Section 5, Xinyi Road, Xinyi District"
+    message["latitude"] = 25.033964
+    message["longitude"] = 121.564468
     return message
 
 
@@ -229,8 +234,8 @@ def getMRTVideoMessage():
 def getMRTSoundMessage():
     message = dict()
     message["type"] = "audio"
-    message["originalContentUrl"] = F"{end_point}/static/mrt_sound.m4a"
-    import audioread
+    message["originalContentUrl"] = F"{end_point}/static/mrt_sound.m4a"   
+    import audioread  #僅能於本地端執行
     with audioread.audio_open('static/mrt_sound.m4a') as f:
         # totalsec contains the length in float
         totalsec = f.duration
