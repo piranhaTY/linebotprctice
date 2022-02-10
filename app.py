@@ -51,11 +51,9 @@ def index():
                 elif text == "台北101":
                     payload["messages"] = [getTaipei101ImageMessage(),
                                            getTaipei101LocationMessage(),
-                                           getMRTVideoMessage()]
-                    
+                                           getMRTVideoMessage()]                    
                 elif text == "台北101圖":
-                    payload["messages"] = [getTaipei101ImageMessage()]
-                    
+                    payload["messages"] = [getTaipei101ImageMessage()]                   
                 elif text == "台北101影片":
                     payload["messages"] = [getMRTVideoMessage()]
                     
@@ -224,7 +222,7 @@ def getMRTVideoMessage():
     message = dict()
     message["type"] = "video"
     message["originalContentUrl"] = F"{end_point}/static/taipei_101_video.mp4"
-    message[ "previewImageUrl"] = F"{end_point}/static/taipei_1.jpeg"
+    message["previewImageUrl"] = F"{end_point}/static/taipei_1.jpeg"
     return message
 
 
