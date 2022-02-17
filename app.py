@@ -8,7 +8,7 @@ import json
 import configparser
 import os
 from urllib import parse
-import mysql.connector
+import pyodbc
 app = Flask(__name__, static_url_path='/static')
 UPLOAD_FOLDER = 'static'
 ALLOWED_EXTENSIONS = set(['pdf', 'png', 'jpg', 'jpeg', 'gif'])
