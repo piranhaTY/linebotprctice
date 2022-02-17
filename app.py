@@ -62,7 +62,7 @@ def index():
                             {
                                 "type": "text",
                                 "text": getTotalSentMessageCount()
-                            }
+                            }                                       
                         ]
                 elif text == "今日確診人數":
                     payload["messages"] = [
@@ -100,6 +100,14 @@ def index():
                               }
                             }
                         ]
+                elif text == "菜單":
+                    payload["messages"] = [
+                            {
+                                "type": "text",
+                                "text": sql_show_menu()
+                            }
+                        ]
+                
                 else:
                     payload["messages"] = [
                             {
@@ -165,6 +173,21 @@ def pretty_echo(event):
 
 
 @app.route("/sendTextMessageToMe", methods=['POST'])
+
+def sql_show_menu():
+    connection = mysql.connector.connect(host="35.221.178.251",
+                                     database="project",
+                                     user="root",
+                                     password="cfi10202")
+    mycursor = connection.cursor()
+    mycursor.execute("SELECT * FROM products")
+    myresult = mycursor.fetchall()
+    show_menu = list()
+    for x in myresult:
+        show_menu.append(f"{x[1].ljust(30, '-')}{str(x[2]).rjust(4)}元 ({x[2]}大卡)")
+    return show_menu
+
+
 def sendTextMessageToMe():
     pushMessage({})
     return 'OK'
