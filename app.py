@@ -8,7 +8,7 @@ import json
 import configparser
 import os
 from urllib import parse
-import mysql.connector as sql
+import mysql.connector
 app = Flask(__name__, static_url_path='/static')
 UPLOAD_FOLDER = 'static'
 ALLOWED_EXTENSIONS = set(['pdf', 'png', 'jpg', 'jpeg', 'gif'])
@@ -176,10 +176,10 @@ def pretty_echo(event):
 @app.route("/sendTextMessageToMe", methods=['POST'])
 
 def sql_show_menu():
-    connection = sql.connect(host="35.221.178.251",
-                                     database="project",
-                                     user="root",
-                                     password="cfi10202")
+    connection = mysql.connector.connect(host="35.221.178.251",
+                                        database="project",
+                                        user="root",
+                                        password="cfi10202")
     mycursor = connection.cursor()
     mycursor.execute("SELECT * FROM products")
     myresult = mycursor.fetchall()
