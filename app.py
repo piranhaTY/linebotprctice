@@ -183,10 +183,8 @@ def sql_show_menu():
     mycursor = connection.cursor()
     mycursor.execute("SELECT * FROM products")
     myresult = mycursor.fetchall()
-    show_menu = list()
-    for x in myresult:
-        show_menu.append(f"{x[1].ljust(30, '-')}{str(x[2]).rjust(4)}元 ({x[2]}大卡)")
-    return show_menu
+    showlist = "".join(f"{x[1].ljust(30, '-')}{str(x[2]).rjust(4)}元 ({x[2]}大卡)\n" for x in myresult)
+    return showlist
 
 
 def sendTextMessageToMe():
