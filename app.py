@@ -183,7 +183,7 @@ def sql_show_menu():
     mycursor = connection.cursor()
     mycursor.execute("SELECT * FROM products")
     myresult = mycursor.fetchall()
-    showlist = "".join(f"{x[1].ljust(30, '-')}{str(x[2]).rjust(4)}元 ({x[2]}大卡)\n" for x in myresult)
+    showlist = "".join(f"{x[2]}：{str(x[3]).rjust(3)}元 ({x[4]})\n" for x in myresult)
     return showlist
 
 
